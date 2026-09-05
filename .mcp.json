@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ektie": {
+      "type": "http",
+      "url": "https://app.ektie.io/mcp"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "ektie",
+  "displayName": "Ektie",
+  "version": "1.0.0",
+  "description": "Connect your AI assistant to an Ektie workspace as the orchestrator. Call named GTM worker tools (research, analytics, ICP, sequences, outreach, ads, Creative Studio) with outcome briefs — the hired team keeps running on heartbeats.",
+  "author": {
+    "name": "Ektie",
+    "email": "legal@ektie.com"
+  },
+  "homepage": "https://ektie.com",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "keywords": [
+    "mcp",
+    "gtm",
+    "crm",
+    "sales",
+    "marketing",
+    "outreach",
+    "orchestrator",
+    "creative-studio"
+  ],
+  "category": "integrations",
+  "tags": [
+    "mcp",
+    "gtm",
+    "crm",
+    "sales"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.cursor-mcp.json"
+}

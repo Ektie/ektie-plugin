@@ -1,0 +1,27 @@
+{
+  "name": "ektie",
+  "version": "1.0.0",
+  "description": "Ektie skills for orchestrating an AI go-to-market team via named worker tools.",
+  "author": {
+    "name": "Ektie",
+    "url": "https://ektie.com"
+  },
+  "homepage": "https://ektie.com",
+  "license": "MIT",
+  "skills": "./skills/",
+  "mcpServers": {},
+  "interface": {
+    "displayName": "Ektie",
+    "shortDescription": "Orchestrate your GTM team",
+    "longDescription": "Connect as the orchestrator to an Ektie workspace. Call specialized go-to-market worker tools — research, analytics, ICP, CRM, sequences, outreach, ads, and Creative Studio — with plain-English outcome briefs. Role-scoped access keeps domain micro-tools inside workers.",
+    "defaultPrompt": "How many contacts have been contacted in this workspace?",
+    "developerName": "Ektie",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://ektie.com"
+  }
+}
