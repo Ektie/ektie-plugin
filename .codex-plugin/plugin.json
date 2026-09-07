@@ -1,7 +1,7 @@
 {
   "name": "ektie",
   "version": "1.0.0",
-  "description": "Ektie skills for orchestrating an AI go-to-market team via named worker tools.",
+  "description": "Finding customers is the hard part. Ektie is an AI go-to-market team you hire to prospect, follow up, and make creatives. They keep working after you close the tab.",
   "author": {
     "name": "Ektie",
     "url": "https://ektie.com"
@@ -12,8 +12,8 @@
   "mcpServers": {},
   "interface": {
     "displayName": "Ektie",
-    "shortDescription": "Orchestrate your GTM team",
-    "longDescription": "Connect as the orchestrator to an Ektie workspace. Call specialized go-to-market worker tools — research, analytics, ICP, CRM, sequences, outreach, ads, and Creative Studio — with plain-English outcome briefs. Role-scoped access keeps domain micro-tools inside workers.",
+    "shortDescription": "Your AI sales and marketing team",
+    "longDescription": "Finding customers is the hard part. Ektie is an AI go-to-market team you hire to prospect, follow up, and make ads and creatives. They keep working after you close the tab. Use this when you want to check in, ask what they are doing, or point them somewhere. You set the direction. The team does the work.",
     "defaultPrompt": "How many contacts have been contacted in this workspace?",
     "developerName": "Ektie",
     "category": "Productivity",

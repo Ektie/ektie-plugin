@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Marketplace copy leads with the customer problem (distribution) and hired GTM team, not the operator/orchestrator hook.
+
 ## 1.0.0
 
 - Initial multi-host Ektie MCP + skills plugin (Claude Code, Cursor, Codex, portable skills).

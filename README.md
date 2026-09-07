@@ -1,10 +1,8 @@
 # Ektie MCP and Skills Plugin
 
-Connect [Claude Code](https://claude.com/claude-code), [Cursor](https://cursor.com), [Codex](https://developers.openai.com/codex/cli), ChatGPT, and other agents to an [Ektie](https://ektie.com) workspace.
+Finding customers is the hard part. [Ektie](https://ektie.com) is an AI go-to-market team you hire to prospect, follow up, and make creatives. They keep working after you close the tab.
 
-Ektie is an AI go-to-market team. This plugin wires your assistant to the hosted [MCP](https://modelcontextprotocol.io/) server and an orchestrator skill so you can steer that team when you ask — without replacing how it already runs on its own.
-
-**You are the orchestrator.** Call named worker tools with plain-English outcome briefs. Domain micro-tools stay inside workers. The hired team keeps running on heartbeats.
+This plugin lets you talk to that team from [Claude Code](https://claude.com/claude-code), [Cursor](https://cursor.com), [Codex](https://developers.openai.com/codex/cli), ChatGPT, and other agents. They already work on their own. This is how you jump in when you want to.
 
 ## Installation
 

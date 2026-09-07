@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "ektie",
-  "description": "Connect your AI assistant to an Ektie workspace as the orchestrator. Call named GTM worker tools (research, analytics, ICP, sequences, outreach, ads, Creative Studio) with outcome briefs — the hired team keeps running on heartbeats.",
+  "description": "Finding customers is the hard part. Ektie is an AI go-to-market team you hire to prospect, follow up, and make creatives. They keep working after you close the tab. Use this when you want to check in or point them.",
   "version": "1.0.0",
   "author": {
     "name": "Ektie",
