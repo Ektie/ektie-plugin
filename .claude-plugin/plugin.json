@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "ektie",
-  "description": "Finding customers is the hard part. Ektie is an AI go-to-market team you hire to prospect, follow up, and make creatives. They keep working after you close the tab. Use this when you want to check in or point them.",
-  "version": "1.0.0",
+  "description": "Finding customers is the hard part. Ektie runs your go-to-market work in one place: CRM, email and sequences, forms, social posts, ads and Creative Studio, with an AI team you can hire. Connect your assistant to work in Ektie directly, with the same checks your team works under.",
+  "version": "2.0.0",
   "author": {
     "name": "Ektie",
     "url": "https://ektie.com"

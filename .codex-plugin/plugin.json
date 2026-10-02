@@ -1,7 +1,7 @@
 {
   "name": "ektie",
-  "version": "1.0.0",
-  "description": "Finding customers is the hard part. Ektie is an AI go-to-market team you hire to prospect, follow up, and make creatives. They keep working after you close the tab.",
+  "version": "2.0.0",
+  "description": "Finding customers is the hard part. Ektie runs your go-to-market work in one place: CRM, email and sequences, forms, social posts, ads and Creative Studio, with an AI team you can hire. Connect your assistant to work in Ektie directly, with the same checks your team works under.",
   "author": {
     "name": "Ektie",
     "url": "https://ektie.com"
@@ -9,19 +9,28 @@
   "homepage": "https://ektie.com",
   "license": "MIT",
   "skills": "./skills/",
-  "mcpServers": {},
+  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Ektie",
-    "shortDescription": "Your AI sales and marketing team",
-    "longDescription": "Finding customers is the hard part. Ektie is an AI go-to-market team you hire to prospect, follow up, and make ads and creatives. They keep working after you close the tab. Use this when you want to check in, ask what they are doing, or point them somewhere. You set the direction. The team does the work.",
-    "defaultPrompt": "How many contacts have been contacted in this workspace?",
+    "shortDescription": "Run your CRM, outreach and ads",
+    "longDescription": "Ektie is a CRM and go-to-market platform for B2B teams: contacts and companies, email and sequences, forms, social posts, Google, Meta and Reddit ads, and Creative Studio for ad images and short videos, with an AI team you can hire to keep working after you close the tab. This plugin connects Codex to your Ektie workspace so you can work in it directly: search and update records, research accounts and score ICP fit, write and send follow-ups, build and enroll sequences, publish social posts, and build, launch and tune ad campaigns. It follows your Ektie role permissions and the same checks your team works under, and anything that sends, spends or deletes asks you first.",
+    "defaultPrompt": [
+      "How many contacts have been contacted this month?",
+      "Research this account, score its ICP fit and add it to the CRM.",
+      "Draft follow-ups for contacts who asked for pricing and show me first."
+    ],
     "developerName": "Ektie",
-    "category": "Productivity",
+    "category": "Business & Operations",
     "capabilities": [
       "Interactive",
       "Read",
       "Write"
     ],
-    "websiteURL": "https://ektie.com"
+    "websiteURL": "https://ektie.com",
+    "supportURL": "https://ektie.com/contact",
+    "privacyPolicyURL": "https://ektie.com/privacy",
+    "termsOfServiceURL": "https://ektie.com/terms",
+    "composerIcon": "./assets/logo.svg",
+    "logo": "./assets/logo.png"
   }
 }

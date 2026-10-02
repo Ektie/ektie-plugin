@@ -1,8 +1,8 @@
 # Ektie MCP and Skills Plugin
 
-Finding customers is the hard part. [Ektie](https://ektie.com) is an AI go-to-market team you hire to prospect, follow up, and make creatives. They keep working after you close the tab.
+Finding customers is the hard part. [Ektie](https://ektie.com) runs your go-to-market work in one place: CRM, email and sequences, forms, social posts, ads and Creative Studio, with an AI team you can hire to keep working after you close the tab.
 
-This plugin lets you talk to that team from [Claude Code](https://claude.com/claude-code), [Cursor](https://cursor.com), [Codex](https://developers.openai.com/codex/cli), ChatGPT, and other agents. They already work on their own. This is how you jump in when you want to.
+This plugin lets you work in Ektie directly from [Claude Code](https://claude.com/claude-code), [Cursor](https://cursor.com), [Codex](https://developers.openai.com/codex/cli), ChatGPT, and other agents, with the same checks your team works under.
 
 ## Installation
 
@@ -31,7 +31,7 @@ codex plugin marketplace add <org>/ektie-plugin
 codex plugin add ektie@ektie
 ```
 
-Start a new Codex session after install. Codex currently ships the **skills** from this repo; configure MCP separately with `https://app.ektie.io/mcp` if your client supports remote HTTP MCP.
+Start a new Codex session after install. The plugin installs the `ektie-operator` skill and the Ektie MCP server (`https://app.ektie.io/mcp`); sign in to your workspace via OAuth on first use.
 
 ### ChatGPT and other MCP clients
 
@@ -51,65 +51,55 @@ npx skills add <org>/ektie-plugin -y -a <agent>
 
 Examples: `gemini-cli`, `opencode`. Drop `-y` to pick skills interactively; add `-g` for a user-level install. See [supported agents](https://github.com/vercel-labs/skills#supported-agents).
 
-This path installs skills only — point the agent at `https://app.ektie.io/mcp` separately for tools.
+This path installs skills only. Point the agent at `https://app.ektie.io/mcp` separately for tools.
 
 ## Requirements
 
-- An Ektie workspace with a product entitlement
-- Your role has at least one MCP worker group enabled (Settings → Roles → MCP access)
-- OAuth on `https://app.ektie.io/mcp` (recommended), or a workspace PAT from Settings → MCP access for clients that only support bearer tokens
+- An Ektie workspace on a plan that includes MCP access
+- OAuth on `https://app.ektie.io/mcp` (recommended), or a workspace token from Settings → MCP access for clients that only support bearer tokens
+- The tools you see follow your Ektie role's permissions, the same ones the app uses
 
 ## Features
 
 ### MCP server
 
-Remote server: `https://app.ektie.io/mcp`
+Remote server: `https://app.ektie.io/mcp`. Your assistant does the thinking and the writing; each tool does one job directly in Ektie and returns the full result.
 
-| Surface | Tools |
+| Area | Tools |
 |---|---|
-| GTM workers | `research_worker`, `analytics_worker`, `marketing_analytics_worker`, `icp_worker`, `record_worker`, `task_worker`, `intelligence_worker`, `prospect_discovery_worker`, `prospect_verify_worker`, `sequence_worker`, `outreach_worker`, `linkedin_worker`, `meeting_worker`, `listener_worker`, `content_ops_worker`, `ad_ops_worker`, `creative_worker` |
-| Protocol | `ask_clarification`, `agent_tool_job_status` |
+| Schema and lookup | `describe_workspace`, `search_records`, `get_record`, `run_report`, `describe_tables`, `query_database`, `list_team` |
+| Records and hygiene | `create_records`, `update_records`, `delete_records`, `crm_hygiene_report`, `cleanup_low_fit_contacts` |
+| Notes, tasks, lists | `add_note`, `update_note`, `create_task`, `update_task`, `list_lists`, `create_list`, `add_to_list`, `remove_from_list` |
+| Signals and intelligence | `add_signal`, `add_intelligence`, `update_intelligence` |
+| ICP fit, research, enrichment | `list_icps`, `set_fit_score`, `complete_research`, `complete_enrichment` |
+| Email | `list_email_accounts`, `send_email`, `reply_email` |
+| Sequences | `list_sequences`, `create_sequence`, `update_sequence_steps`, `set_sequence_status`, `enroll_in_sequence`, `exit_sequence`, `sequence_stats` |
+| Forms | `list_forms`, `create_form`, `update_form`, `list_form_submissions` |
+| Media and social posts | `upload_media`, `list_content_channels`, `create_social_post`, `update_social_post`, `schedule_social_post` |
+| Ads (Google, Meta, Reddit) | `list_ad_campaigns`, `ad_performance`, `ads_gaql_query`, `keyword_ideas`, `ad_options`, `search_meta_targeting`, `search_google_targeting`, `search_reddit_targeting`, `list_ad_audiences`, `estimate_ad_reach`, `create_custom_audience`, `upload_customer_match`, `create_lookalike_audience`, `create_ad_campaign`, `update_ad_campaign`, `attach_ad_creative`, `launch_ad_campaign`, `delete_ad_campaign_draft`, `set_ad_status`, `update_ad_budget`, `update_keywords`, `update_live_targeting`, `update_ad_copy`, `add_ad_group`, `duplicate_ad_campaign` |
+| Creative Studio | `create_studio_project`, `get_studio_project`, `advance_studio_project`, `set_video_format`, `approve_stage`, `select_variant`, `edit_stage_output`, `revise_stage`, `list_project_assets`, `get_project_asset`, `regenerate_still`, `regenerate_scene`, `generate_still`, `agent_tool_job_status` |
 | Workspace | `ai_context`, `brand_kit` |
-| Creative Studio | `creative_studio_project`, `approve_stage`, `select_variant`, `revise_script`, `revise_storyboard`, `revise_cast`, `revise_concept`, `revise_hooks` |
-
-Workers return `job_id` immediately and run asynchronously. Poll `agent_tool_job_status` until the job finishes. Tool visibility is role-scoped.
-
-The server also exposes MCP resources (schema, ICP, brand kit, …) and prompts (GTM briefing, prospect research, …) after you authenticate.
 
 ### Skills
 
 | Skill | Purpose |
 |---|---|
-| [`ektie-orchestrator`](skills/ektie-orchestrator/SKILL.md) | How to call workers with outcome briefs, poll jobs, clarify ambiguity, and avoid destructive actions without an explicit ask |
+| [`ektie-operator`](skills/ektie-operator/SKILL.md) | Which tool to use when, the order to call them in, how to handle checks and approvals, and best practices for records, research, email, sequences, posts, ads and Creative Studio |
 
 ## How to work
 
-1. Call the matching **worker tool** with `{ instruction }` — an outcome, not a list of inner tools or steps.
-2. For multi-part asks, call multiple workers; do not stop after a partial answer.
-3. If the request is ambiguous, call `ask_clarification` first.
-4. When a worker returns `job_id`, poll `agent_tool_job_status` until `success` or `failed`, then use the summary.
-
-| Ask | Worker |
-|---|---|
-| Contact counts / contacted / outbound activity | `analytics_worker` |
-| Research a contact or company | `research_worker` |
-| Create or update CRM records | `record_worker` |
-| ICP / product fit | `icp_worker` |
-| Find or verify prospects | `prospect_discovery_worker` / `prospect_verify_worker` |
-| Sequences | `sequence_worker` |
-| Send outreach (only when clearly asked) | `outreach_worker` |
-| Hired-team tasks | `task_worker` |
-| Ads | `ad_ops_worker` |
-| Creative Studio production | `creative_worker` (+ guided `creative_studio_*` / `revise_*` tools) |
-
-Do **not** invent micro-tools such as `crm_lookup`, `contact_status`, or `sequence_analytics` — those run inside workers.
+1. Start with `describe_workspace` and the matching `list_*` tool so you use real field slugs, option values and ids.
+2. Write the content yourself: emails, posts, notes, research, sequence steps, ad copy.
+3. Before anything that sends, spends, publishes or deletes, show the human and get a yes.
+4. A `denied` result is final; report its message. `needs_approval` means ask the human, then retry with `human_override` only if they agree.
 
 ## Usage examples
 
-- “How many contacts have been contacted?”
-- “Research our top overdue A-tier accounts”
-- “Show what my hired GTM team is working on”
-- “What’s waiting for my review in Creative Studio?”
+- "How many contacts have been contacted this month?"
+- "Research Acme's VP of Sales, score their ICP fit and add them as a contact."
+- "Draft a follow-up to everyone who asked for pricing and show me before sending."
+- "Build a Meta lead campaign for our SaaS RevOps ICP with a $30 daily budget."
+- "What is waiting for my review in Creative Studio?"
 
 ## MCP config (manual)
 
@@ -143,10 +133,11 @@ Never commit tokens to this repository.
 
 ## Limitations
 
-- **Role ACL.** Missing workers on `tools/list` means your role cannot use them — ask a workspace admin to enable the MCP group.
-- **Async workers.** Connector timeouts are avoided by returning `job_id` immediately; always poll status instead of expecting a full worker run in one HTTP round-trip.
-- **Destructive actions.** Outreach, LinkedIn, meetings, and ads workers can take irreversible external actions; only use them when the human explicitly asks.
-- **Codex.** Skills install from this repo; MCP must be configured separately until Codex wires remote MCP in the plugin surface.
+- **Permissions.** A tool missing from your tool list means your Ektie role or plan does not include it. Ask a workspace admin.
+- **Same rules as the team.** Outreach needs research and enrichment first, and respects opt-outs, sequence membership, cooldowns and contact frequency limits.
+- **No prospecting.** Finding new leads is not part of this server; bring your own sources and add results with `create_records`.
+- **Integrations.** Email, ads and social tools need the matching account connected in Ektie (Settings → Integrations).
+- **Background work.** Only Creative Studio generation runs in the background; poll `get_studio_project`.
 
 ## Documentation
 
