@@ -42,7 +42,7 @@ Read this file first. Then open the reference for the area you are working in:
 | Email someone | `send_email` / `reply_email` |
 | Multi-step outreach | `list_sequences`, `create_sequence`, `enroll_in_sequence` |
 | Capture leads | `create_form`, `list_form_submissions` |
-| Post on social | `upload_media`, `create_social_post`, `schedule_social_post` |
+| Post on social | `prepare_media_upload`, `complete_media_upload`, `upload_media`, `create_social_post`, `schedule_social_post` |
 | Run ads | `ad_options`, `search_*_targeting`, `create_ad_campaign`, `launch_ad_campaign`, live `update_*` / `set_ad_status` tools |
 | Ad images, videos | `create_studio_project`, `get_studio_project` |
 | Company facts and brand | `ai_context`, `brand_kit` |

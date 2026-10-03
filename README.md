@@ -75,7 +75,7 @@ Remote server: `https://app.ektie.io/mcp`. Your assistant does the thinking and 
 | Email | `list_email_accounts`, `send_email`, `reply_email` |
 | Sequences | `list_sequences`, `create_sequence`, `update_sequence_steps`, `set_sequence_status`, `enroll_in_sequence`, `exit_sequence`, `sequence_stats` |
 | Forms | `list_forms`, `create_form`, `update_form`, `list_form_submissions` |
-| Media and social posts | `upload_media`, `list_content_channels`, `create_social_post`, `update_social_post`, `schedule_social_post` |
+| Media and social posts | `upload_media`, `prepare_media_upload`, `complete_media_upload`, `list_content_channels`, `create_social_post`, `update_social_post`, `schedule_social_post` |
 | Ads (Google, Meta, Reddit) | `list_ad_campaigns`, `ad_performance`, `ads_gaql_query`, `keyword_ideas`, `ad_options`, `search_meta_targeting`, `search_google_targeting`, `search_reddit_targeting`, `list_ad_audiences`, `estimate_ad_reach`, `create_custom_audience`, `upload_customer_match`, `create_lookalike_audience`, `create_ad_campaign`, `update_ad_campaign`, `attach_ad_creative`, `launch_ad_campaign`, `delete_ad_campaign_draft`, `set_ad_status`, `update_ad_budget`, `update_keywords`, `update_live_targeting`, `update_ad_copy`, `add_ad_group`, `duplicate_ad_campaign` |
 | Creative Studio | `create_studio_project`, `get_studio_project`, `advance_studio_project`, `set_video_format`, `approve_stage`, `select_variant`, `edit_stage_output`, `revise_stage`, `list_project_assets`, `get_project_asset`, `regenerate_still`, `regenerate_scene`, `generate_still`, `agent_tool_job_status` |
 | Workspace | `ai_context`, `brand_kit` |

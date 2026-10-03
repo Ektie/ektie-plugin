@@ -23,7 +23,7 @@ If a value is rejected, the result includes `unresolved` with real `candidates`.
 - **Google Search:** tight ad groups by theme; each ad group owns its keywords and responsive search ads (3 to 15 headlines of max 30 characters, 2 to 4 descriptions of max 90). Start keywords on PHRASE or EXACT; add negatives for job seekers, free, DIY. Over-limit copy is rejected: rewrite shorter, do not truncate mid-word.
 - **Meta:** one campaign, ad sets that own their targeting and their ads (`ad_sets[].ads[]`); do not clone one creative across every ad set. Leads objectives need a Facebook `page_id`. `advantage_audience: false` keeps your targeting as hard filters.
 - **Reddit:** pick communities where the buyer actually talks; text ads need headline and body, image / video / carousel ads also need media and a `final_url`. The pixel and funding instrument default to the integration settings; any you pass must come from `ad_options`.
-- **Creative:** use `upload_media` ids or Creative Studio outputs (`attach_ad_creative` with `studio_stills` / `studio_exports`). For new ad images use Creative Studio `format_key: ad_image`, one project per visual theme.
+- **Creative:** use `upload_media` / `complete_media_upload` ids or Creative Studio outputs (`attach_ad_creative` with `studio_stills` / `studio_exports`). For a local image, `prepare_media_upload`, PUT the raw file, then `complete_media_upload`. Do not paste the image into the tool call as base64. For new ad images use Creative Studio `format_key: ad_image`, one project per visual theme.
 - Budgets are daily, in the ad account currency. Start small and say so to the human.
 
 ## Live campaigns

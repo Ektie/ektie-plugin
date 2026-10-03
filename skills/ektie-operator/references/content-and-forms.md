@@ -2,9 +2,9 @@
 
 ## Media
 
-- `upload_media` takes a public `https` URL or a `data:` URL (JPEG, PNG, GIF, WebP or PDF). It returns `media_id` (for ads and Creative Studio) and a public `url` (for posts and carousels).
-- Internal or private addresses are refused. If the human attaches a file, pass it as a data URL.
-- Need a new image? Generate it with Creative Studio (`generate_still`), then use its URL.
+- `upload_media` stores a public `https` URL (or an icon under 100 KB as a `data:` URL). It returns `media_id` and a public `url`.
+- A local file uses `prepare_media_upload` (`content_type`, exact `size`), then a raw PUT of the bytes to `upload_url` with the returned headers and no Authorization header, then `complete_media_upload`. Do not base64 an ad creative into `upload_media`.
+- Internal or private addresses are refused. JPEG, PNG, GIF, WebP, and PDF only.
 
 ## Social posts
 
